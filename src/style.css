@@ -1,9 +1,25 @@
+#app {
+  margin: 0 auto;
+  background: #000;
+  background: rgb(39, 173, 225);
+  border-radius: 30px;
+  box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  text-align: center;
+  height: 450px;
+  color: #fff;
+}
+h1 {
+  padding-top: 50px;
+}
 ul {
-  width: 500px;
   list-style: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0;
 }
 li {
   display: flex;
@@ -12,4 +28,14 @@ li {
 .iconImg {
   width: 100px;
   height: 100px;
+}
+.temp {
+  font-size: 48px;
+}
+.cityname {
+  font-size: 36px;
+}
+#select {
+  border-radius: 10px;
+  padding: 5px 10px;
 }
