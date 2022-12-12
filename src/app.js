@@ -50,3 +50,67 @@
 // // 1. 날씨나 시간대(주간/야간)에 따라 배경 연출 바꾸기
 // // 2. 아이콘을 다른 것으로 변경
 // // 3. 기타 등등
+
+/* ul 추가 */
+
+let app = document.querySelector("#app");
+let cityBtn = document.querySelectorAll(".addbox button");
+cityBtn.forEach((e) => {
+  e.addEventListener("click", () => {
+    let ulEl = document.createElement("ul");
+    ulEl.setAttribute("class", `${e.className}`);
+    ulEl.innerHTML = `
+    <li class="icon-list"">
+          <span class="icon-desc">Weather Desc</span>
+        </li>
+        <li class="city-list"><span class="cityname">Seoul</span></li>
+        <li class="temp-list">
+          <span class="temp">55&deg;</span>
+          <span class="maxtemp">MAX : 60&deg;</span>
+          <span class="mintemp">MIN : -10&deg;</span>
+        </li>
+        <li class="wind-list">
+          <div class="wind">
+            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
+          </div>
+          <div class="wind-speed"></div>
+        </li>
+        <li class=humidity-list"><span class="humidity">55%</span></li>
+    `;
+    app.appendChild(ulEl);
+    e.remove();
+    showWeather();
+  });
+});
+
+/* weather */
+function showWeather() {
+  const API_KEY = "ff1e91436438f0f1fc316ab298379047";
+  let city = document.querySelectorAll("#app ul");
+  city.forEach((e, index) => {
+    let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${e.className}&appid=${API_KEY}`;
+    console.log(API_URL);
+    fetch(API_URL)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        e.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../src/images/${data.weather[0].main}.jpg)`;
+        e.children[0].children[0].textContent = data.weather[0].main;
+        e.children[1].children[0].textContent = data.name;
+        e.children[2].children[0].innerHTML = `Temp : ${parseInt(
+          data.main.temp - 273.15
+        )}&deg;`;
+        e.children[2].children[1].innerHTML = `MIN : ${parseInt(
+          data.main.temp_max - 273.15
+        )}&deg;`;
+        e.children[2].children[2].innerHTML = `MAX : ${parseInt(
+          data.main.temp_min - 273.15
+        )}&deg;`;
+        e.children[3].children[0].children[0].style.transform = `rotate(${data.wind.deg}deg)`;
+        e.children[3].children[1].innerHTML = `WIND SPEED : ${data.wind.speed} m/s`;
+        e.children[4].children[0].textContent = `HUMIDITY : ${data.main.humidity}%`;
+      });
+  });
+}
+showWeather();
