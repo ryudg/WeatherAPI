@@ -9,22 +9,34 @@
   </head>
   <body>
     <div id="app">
-      <h1>Today</h1>
-      <ul>
-        <li><span class="cityname"></span></li>
-        <li class="icon"><span></span><img class="iconImg" src="" alt="" /></li>
-        <li><span class="temp">온도</span><span class="temp">&deg;</span></li>
-        <li><span class="desc"></span></li>
+      <ul class="seoul">
+        <li class="icon-list"">
+          <span class="icon-desc">Cloud</span>
+        </li>
+        <li class="city-list"><span class="cityname">Seoul</span></li>
+        <li class="temp-list">
+          <span class="temp">55&deg;</span>
+          <span class="maxtemp">MAX : 60&deg;</span>
+          <span class="mintemp">MIN : -10&deg;</span>
+        </li>
+        <li class="wind-list">
+          <div class="wind">
+            <span class="windarrow">ㅡㅡㅡ</span>
+          </div>
+          <div class="wind-speed"></div>
+        </li>
+        <li class=humidity-list"><span class="humidity">55%</span></li>
       </ul>
-      <select name="select" id="select">
+    </div>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
+
+<!-- 
         <option value="seoul">서울</option>
         <option value="anyang-si">안양</option>
         <option value="inchon">인천</option>
         <option value="daegu">대구</option>
         <option value="busan">부산</option>
         <option value="jeju">제주</option>
-      </select>
-    </div>
-    <script src="./src/app.js"></script>
-  </body>
-</html>
+ -->

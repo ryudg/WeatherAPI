@@ -1,41 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
+  width: 50vw;
   margin: 0 auto;
-  background: #000;
-  background: rgb(39, 173, 225);
-  border-radius: 30px;
-  box-shadow: 5px 10px 25px rgba(0, 0, 0, 0.5);
-  width: 250px;
-  text-align: center;
-  height: 450px;
-  color: #fff;
-}
-h1 {
-  padding-top: 50px;
-}
-ul {
-  list-style: none;
+  background: skyblue;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 50px;
+  padding: 50px;
+}
+ul {
   width: 100%;
-  padding: 0;
+  border-radius: 20px;
+  list-style: none;
+  background: #ccc;
 }
-li {
-  display: flex;
-  align-items: center;
+ul li {
+  padding: 20px;
 }
-.iconImg {
-  width: 100px;
-  height: 100px;
-}
-.temp {
-  font-size: 48px;
-}
-.cityname {
-  font-size: 36px;
-}
-#select {
-  border-radius: 10px;
-  padding: 5px 10px;
+.seoul {
+  background-image: url(../src/);
 }
