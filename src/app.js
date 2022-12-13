@@ -1,30 +1,34 @@
 /* 요소 추가 */
 let app = document.querySelector("#app");
 let cityBtn = document.querySelectorAll(".search-list button");
-cityBtn.forEach((b) => {
-  b.addEventListener("click", function () {
+cityBtn.forEach((e) => {
+  e.addEventListener("click", function () {
     let ulEl = document.createElement("ul");
-    ulEl.setAttribute("class", `${b.className}`);
+    ulEl.setAttribute("class", `${e.className}`);
     ulEl.innerHTML = `
     <li class="icon-list">
-    <span class="icon-desc">Weather Desc</span>
-  </li>
-  <li class="city-list"><span class="cityname">Seoul</span></li>
-  <li class="temp-list">
-    <span class="temp">55&deg;</span>
-    <span class="maxtemp">MAX : 60&deg;</span>
-    <span class="mintemp">MIN : -10&deg;</span>
-  </li>
-  <li class="wind-list">
-    <div class="wind">
-      <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-    </div>
-    <div class="wind-speed"></div>
-  </li>
-  <li class="humidity-list"><span class="humidity">55%</span></li>
+      <span class="icon-desc"></span>
+    </li>
+    <li class="city-list">
+      <span class="cityname"></span>
+    </li>
+    <li class="temp-list">
+      <span class="temp"></span>
+      <span class="feels-like"></span>
+    </li>
+    <li class="wind-list">
+      <div class="wind">
+        <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
+      </div>
+      <div class="wind-speed">
+      </div>
+    </li>
+    <li class="humidity-list">
+      <span class="humidity"></span>
+    </li>
     `;
     app.appendChild(ulEl);
-    b.remove();
+    e.remove();
     showWeather();
     let search = document.querySelector("#search");
     search.value = "";
@@ -46,6 +50,7 @@ function filter() {
 }
 filter();
 
+/* 버튼 초기화 */
 let bodyEl = document.querySelector(".body");
 let cityName = document.querySelectorAll(".search-list button");
 bodyEl.addEventListener("click", function () {
@@ -69,14 +74,13 @@ function showWeather() {
         e.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../src/images/${data.weather[0].main}.jpg)`;
         e.children[0].children[0].innerHTML = data.weather[0].main;
         e.children[1].children[0].innerHTML = data.name;
-        e.children[2].children[0].innerHTML = `Temp : ${parseInt(
-          data.main.temp - 273.15
+        let mainTemp = data.main.temp - 273.15;
+        e.children[2].children[0].innerHTML = `TEMP : ${mainTemp.toFixed(
+          1
         )}&deg;`;
-        e.children[2].children[1].innerHTML = `MIN : ${parseInt(
-          data.main.temp_min - 273.15
-        )}&deg;`;
-        e.children[2].children[2].innerHTML = `MAX : ${parseInt(
-          data.main.temp_max - 273.15
+        let feelTemp = data.main.feels_like - 273.15;
+        e.children[2].children[1].innerHTML = `Feel-TEMP : ${feelTemp.toFixed(
+          1
         )}&deg;`;
         e.children[3].children[0].children[0].style.transform = `rotate(${data.wind.deg}deg)`;
         e.children[3].children[1].innerHTML = `WIND SPEED : ${data.wind.speed} m/s`;
