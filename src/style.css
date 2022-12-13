@@ -78,24 +78,42 @@ ul li {
 .humidity {
   font-size: 18px;
 }
-.addbox button {
-  font-size: 14px;
-  font-weight: 600;
-  width: 80px;
-  height: 30px;
+.search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#search {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: none;
+  color: #fff;
+}
+#search:focus {
+  outline: none;
+}
+.search-list {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 55px;
+  z-index: 999;
+}
+.search-list button {
   border: none;
   background: #fff;
-  border-radius: 20px;
-  margin: 5px 5px;
+  border: 1px solid #fff;
+  border-bottom: 1px solid #000;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.3s;
+  padding: 5px;
 }
-.addbox button:hover {
-  background: #000;
-  color: #fff;
-  border: 2px solid #fff;
-  box-shadow: 0px 2px 10px #fff;
-  transform: translateY(-2px);
+.search-list button:hover {
+  border: 1px solid #000;
 }
 @media (max-width: 1024px) {
   #app {

@@ -7,19 +7,45 @@
     <link rel="stylesheet" href="./src/style.css" />
     <title>WeatherAPI</title>
   </head>
-  <body>
-
+  <body class="body">
     <div id="app">
       <h1>Weather</h1>
-      <div class="addbox">
-        <button class="anyang-si">Anyang-si</button>
-        <button class="inchon">Inchon</button>
-        <button class="daegu">Daegu</button>
-        <button class="busan">Busan</button>
-        <button class="jeju">Jeju</button>
+      <div class="search-box">
+        <input
+          type="text"
+          id="search"
+          onkeyup="filter()"
+          placeholder="Please search for a city"
+          value="Search"
+        />
+        <div class="search-list">
+          <button class="suwon">Suwon-si</button>
+          <button class="inchon">Incheon</button>
+          <button class="seongnam">Seongnam</button>
+          <button class="osan">Osan</button>
+          <button class="chuncheon">Chuncheon</button>
+          <button class="wonju">Wonju</button>
+          <button class="yangyang">Yangyang</button>
+          <button class="sokcho">Sokcho</button>
+          <button class="gangneung">Gangneung</button>
+          <button class="chungju">Chungju</button>
+          <button class="cheonan">Cheonan</button>
+          <button class="jeonju">Jeonju</button>
+          <button class="iksan">Iksan</button>
+          <button class="mokpo">Mokpo</button>
+          <button class="gwangju">Gwangju</button>
+          <button class="yeosu">Yeosu</button>
+          <button class="pohang">Pohang</button>
+          <button class="ulsan">Ulsan</button>
+          <button class="anyang-si">Anyang-si</button>
+          <button class="inchon">Inchon</button>
+          <button class="daegu">Daegu</button>
+          <button class="busan">Busan</button>
+          <button class="jeju">Jeju</button>
+        </div>
       </div>
       <ul class="seoul">
-        <li class="icon-list"">
+        <li class="icon-list">
           <span class="icon-desc">Weather Desc</span>
         </li>
         <li class="city-list"><span class="cityname">Seoul</span></li>
@@ -34,98 +60,8 @@
           </div>
           <div class="wind-speed"></div>
         </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
+        <li class="humidity-list"><span class="humidity">55%</span></li>
       </ul>
-      <!-- <ul class="anyang-si">
-        <li class="icon-list"">
-          <span class="icon-desc">Weather Desc</span>
-        </li>
-        <li class="city-list"><span class="cityname">Seoul</span></li>
-        <li class="temp-list">
-          <span class="temp">55&deg;</span>
-          <span class="maxtemp">MAX : 60&deg;</span>
-          <span class="mintemp">MIN : -10&deg;</span>
-        </li>
-        <li class="wind-list">
-          <div class="wind">
-            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-          </div>
-          <div class="wind-speed"></div>
-        </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
-      </ul>
-      <ul class="inchon">
-        <li class="icon-list"">
-          <span class="icon-desc">Weather Desc</span>
-        </li>
-        <li class="city-list"><span class="cityname">Seoul</span></li>
-        <li class="temp-list">
-          <span class="temp">55&deg;</span>
-          <span class="maxtemp">MAX : 60&deg;</span>
-          <span class="mintemp">MIN : -10&deg;</span>
-        </li>
-        <li class="wind-list">
-          <div class="wind">
-            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-          </div>
-          <div class="wind-speed"></div>
-        </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
-      </ul>
-      <ul class="daegu">
-        <li class="icon-list"">
-          <span class="icon-desc">Weather Desc</span>
-        </li>
-        <li class="city-list"><span class="cityname">Seoul</span></li>
-        <li class="temp-list">
-          <span class="temp">55&deg;</span>
-          <span class="maxtemp">MAX : 60&deg;</span>
-          <span class="mintemp">MIN : -10&deg;</span>
-        </li>
-        <li class="wind-list">
-          <div class="wind">
-            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-          </div>
-          <div class="wind-speed"></div>
-        </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
-      </ul>
-      <ul class="busan">
-        <li class="icon-list"">
-          <span class="icon-desc">Weather Desc</span>
-        </li>
-        <li class="city-list"><span class="cityname">Seoul</span></li>
-        <li class="temp-list">
-          <span class="temp">55&deg;</span>
-          <span class="maxtemp">MAX : 60&deg;</span>
-          <span class="mintemp">MIN : -10&deg;</span>
-        </li>
-        <li class="wind-list">
-          <div class="wind">
-            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-          </div>
-          <div class="wind-speed"></div>
-        </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
-      </ul>
-      <ul class="jeju">
-        <li class="icon-list"">
-          <span class="icon-desc">Weather Desc</span>
-        </li>
-        <li class="city-list"><span class="cityname">Seoul</span></li>
-        <li class="temp-list">
-          <span class="temp">55&deg;</span>
-          <span class="maxtemp">MAX : 60&deg;</span>
-          <span class="mintemp">MIN : -10&deg;</span>
-        </li>
-        <li class="wind-list">
-          <div class="wind">
-            <span class="windarrow"><i class="fa-solid fa-arrow-up"></i></span>
-          </div>
-          <div class="wind-speed"></div>
-        </li>
-        <li class=humidity-list"><span class="humidity">55%</span></li>
-      </ul> -->
     </div>
     <script
       src="https://kit.fontawesome.com/67eff22c15.js"
@@ -134,12 +70,3 @@
     <script src="./src/app.js"></script>
   </body>
 </html>
-
-<!-- 
-        <option value="seoul">서울</option>
-        <option value="anyang-si">안양</option>
-        <option value="inchon">인천</option>
-        <option value="daegu">대구</option>
-        <option value="busan">부산</option>
-        <option value="jeju">제주</option>
- -->
