@@ -71,7 +71,7 @@ function showWeather() {
         return res.json();
       })
       .then(function (data) {
-        e.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../src/images/${data.weather[0].main}.gif)`;
+        e.style.backgroundImage = `linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(./src/images/${data.weather[0].main}.gif)`;
         e.children[0].children[0].innerHTML = data.weather[0].main;
         e.children[1].children[0].innerHTML = data.name;
         let mainTemp = data.main.temp - 273.15;
